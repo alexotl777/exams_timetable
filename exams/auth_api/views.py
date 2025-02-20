@@ -3,11 +3,18 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from auth_api.serializers import UserSerializer
+from exams_api.utils import exception_handler
 
 
 class RegisterUserView(APIView):
+    @exception_handler('RegisterUserView.post')
+    def post(self, request) -> Response:
+        """
+        Рега пользователя
 
-    def post(self, request):
+        :param request: {'email':'str', 'password':'str'}
+        :return: Response
+        """
         serializer = UserSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()

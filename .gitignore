@@ -1,3 +1,14 @@
 .venv/
 venv/
 .idea/
+# Игнорировать папки __pycache__
+__pycache__/
+*/__pycache__/
+**/__pycache__/
+
+# Игнорировать скомпилированные Python файлы
+*.pyc
+*.pyo
+*.pyd
+
+exams/auth_api/__pycache__/
